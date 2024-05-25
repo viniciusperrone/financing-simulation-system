@@ -17,5 +17,14 @@ public class Financing {
         return result;
     }
 
+    double calculateTotalPayment() {
+        double result;
+        double monthlyPayment = this.calculateMonthlyPayment();
+
+        result = monthlyPayment * this.deadlineFinancing * 12;
+
+        return result;
+    }
+
     public static void main(String [] args) {}
 }
