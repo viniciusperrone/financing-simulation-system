@@ -4,7 +4,7 @@ public class InterfaceUser {
     double catchPropertyValue() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Digite o valor do imovél: ");
+        System.out.print("Digite o valor do imovél: ");
 
         return Double.parseDouble(scanner.nextLine());
     }
@@ -12,7 +12,7 @@ public class InterfaceUser {
     int catchDeadlineFinancing() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Prazo do financiamento (em meses): ");
+        System.out.print("Prazo do financiamento (em meses): ");
 
         return Integer.parseInt(scanner.nextLine());
     }
