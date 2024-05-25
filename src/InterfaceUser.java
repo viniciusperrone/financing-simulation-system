@@ -25,11 +25,5 @@ public class InterfaceUser {
         return Double.parseDouble(scanner.nextLine());
     }
 
-    public static void main(String [] args) {
-        InterfaceUser userPrompt = new InterfaceUser();
-
-        userPrompt.catchPropertyValue();
-        userPrompt.catchDeadlineFinancing();
-        userPrompt.catchAnnualTaxRate();
-    }
+    public static void main(String [] args) {}
 }
