@@ -9,5 +9,7 @@ public class Main {
         double propertyValue = userPrompt.catchPropertyValue();
         int deadlineFinancing = userPrompt.catchDeadlineFinancing();
         double annualTaxRate = userPrompt.catchAnnualTaxRate();
+
+        Financing financing = new Financing(propertyValue, deadlineFinancing, annualTaxRate);
     }
 }
