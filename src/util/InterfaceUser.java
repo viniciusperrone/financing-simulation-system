@@ -3,7 +3,7 @@ package util;
 import java.util.Scanner;
 
 public class InterfaceUser {
-    double catchPropertyValue() {
+    public double catchPropertyValue() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Digite o valor do imovél: ");
@@ -11,7 +11,7 @@ public class InterfaceUser {
         return Double.parseDouble(scanner.nextLine());
     }
 
-    int catchDeadlineFinancing() {
+    public int catchDeadlineFinancing() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Digite o prazo do financiamento (em meses): ");
@@ -19,7 +19,7 @@ public class InterfaceUser {
         return Integer.parseInt(scanner.nextLine());
     }
 
-    double catchAnnualTaxRate() {
+    public double catchAnnualTaxRate() {
         Scanner scanner = new Scanner(System.in);
 
         System.out.print("Digite a taxa de juros: ");
