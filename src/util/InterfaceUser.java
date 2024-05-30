@@ -5,10 +5,25 @@ import java.util.Scanner;
 public class InterfaceUser {
     public double catchPropertyValue() {
         Scanner scanner = new Scanner(System.in);
+        boolean validEntry = false;
+        double propertyValue = 0;
 
-        System.out.print("Digite o valor do imovél: ");
+        while(!validEntry) {
+            System.out.print("Digite o valor do imovél: ");
 
-        return Double.parseDouble(scanner.nextLine());
+            if(scanner.hasNextDouble()) {
+                propertyValue = scanner.nextDouble();
+
+                validEntry = true;
+            }
+
+            else {
+                System.out.println("Valor inválido!");
+                scanner.next();
+            }
+        }
+
+        return propertyValue;
     }
 
     public int catchDeadlineFinancing() {
