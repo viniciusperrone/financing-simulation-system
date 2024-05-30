@@ -14,7 +14,11 @@ public class InterfaceUser {
             if(scanner.hasNextDouble()) {
                 propertyValue = scanner.nextDouble();
 
-                validEntry = true;
+                if(propertyValue <= 0) {
+                    System.out.println("Valor deve ser positivo!");
+                } else {
+                    validEntry = true;
+                }
             }
 
             else {
@@ -43,7 +47,7 @@ public class InterfaceUser {
 
             else {
                 System.out.println("Valor inválido!");
-                
+
                 scanner.next();
             }
         }
