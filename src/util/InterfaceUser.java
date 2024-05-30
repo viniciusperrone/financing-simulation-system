@@ -47,7 +47,7 @@ public class InterfaceUser {
                 } else {
                     validEntry = true;
                 }
-                
+
             }
 
             else {
@@ -71,7 +71,11 @@ public class InterfaceUser {
             if(scanner.hasNextDouble()) {
                 annualTaxRate = scanner.nextDouble();
 
-                validEntry = true;
+                if(annualTaxRate <= 0) {
+                    System.out.println("Valor deve ser positivo!");
+                } else {
+                    validEntry = true;
+                }
             }
 
             else {
