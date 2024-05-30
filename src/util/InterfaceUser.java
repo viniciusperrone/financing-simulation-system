@@ -73,7 +73,11 @@ public class InterfaceUser {
 
                 if(annualTaxRate <= 0) {
                     System.out.println("Valor deve ser positivo!");
-                } else {
+                }
+                if(annualTaxRate >= 100000000) {
+                    System.out.println("Taxa muito alta!");
+                }
+                else {
                     validEntry = true;
                 }
             }
