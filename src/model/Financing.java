@@ -40,5 +40,11 @@ public class Financing {
         return result;
     }
 
+    public void printData() {
+        System.out.println("Valor do imovél: " + this.propertyValue);
+        System.out.println("Prazo em meses: " + this.deadlineFinancing);
+        System.out.println("Taxa de imposto anual: " + this.annualTaxRate);
+    }
+
     public static void main(String [] args) {}
 }
