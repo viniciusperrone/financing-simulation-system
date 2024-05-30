@@ -19,6 +19,7 @@ public class InterfaceUser {
 
             else {
                 System.out.println("Valor inválido!");
+
                 scanner.next();
             }
         }
@@ -42,6 +43,7 @@ public class InterfaceUser {
 
             else {
                 System.out.println("Valor inválido!");
+                
                 scanner.next();
             }
         }
@@ -51,10 +53,26 @@ public class InterfaceUser {
 
     public double catchAnnualTaxRate() {
         Scanner scanner = new Scanner(System.in);
+        boolean validEntry = false;
+        double annualTaxRate = 0;
 
-        System.out.print("Digite a taxa de juros: ");
+        while(!validEntry) {
+            System.out.print("Digite a taxa de juros: ");
 
-        return Double.parseDouble(scanner.nextLine());
+            if(scanner.hasNextDouble()) {
+                annualTaxRate = scanner.nextDouble();
+
+                validEntry = true;
+            }
+
+            else {
+                System.out.println("Valor inválido!");
+
+                scanner.next();
+            }
+        }
+
+        return annualTaxRate;
     }
 
     public static void main(String [] args) {}
