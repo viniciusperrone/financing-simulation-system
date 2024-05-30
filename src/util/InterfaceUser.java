@@ -42,7 +42,12 @@ public class InterfaceUser {
             if(scanner.hasNextInt()) {
                 deadlineFinancing = scanner.nextInt();
 
-                validEntry = true;
+                if(deadlineFinancing <= 0) {
+                    System.out.println("Valor deve ser positivo!");
+                } else {
+                    validEntry = true;
+                }
+                
             }
 
             else {
