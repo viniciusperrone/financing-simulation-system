@@ -28,10 +28,25 @@ public class InterfaceUser {
 
     public int catchDeadlineFinancing() {
         Scanner scanner = new Scanner(System.in);
+        boolean validEntry = false;
+        int deadlineFinancing = 0;
 
-        System.out.print("Digite o prazo do financiamento (em meses): ");
+        while(!validEntry) {
+            System.out.print("Digite o prazo do financiamento (em meses): ");
 
-        return Integer.parseInt(scanner.nextLine());
+            if(scanner.hasNextInt()) {
+                deadlineFinancing = scanner.nextInt();
+
+                validEntry = true;
+            }
+
+            else {
+                System.out.println("Valor inválido!");
+                scanner.next();
+            }
+        }
+
+        return deadlineFinancing;
     }
 
     public double catchAnnualTaxRate() {
