@@ -31,7 +31,7 @@ public class Financing {
         return result;
     }
 
-    double calculateTotalPayment() {
+    public double calculateTotalPayment() {
         double result;
         double monthlyPayment = this.calculateMonthlyPayment();
 
@@ -39,6 +39,7 @@ public class Financing {
 
         return result;
     }
+
 
     public void printData() {
         System.out.println("Valor do imovél: " + this.propertyValue);
