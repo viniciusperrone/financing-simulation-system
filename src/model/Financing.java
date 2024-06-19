@@ -1,9 +1,9 @@
 package model;
 
 public abstract class Financing {
-    private double propertyValue;
-    private int deadlineFinancing;
-    private double annualTaxRate;
+    public final double propertyValue;
+    public final int deadlineFinancing;
+    public final double annualTaxRate;
 
     public Financing(double propertyValue, int deadlineFinancing, double annualTaxRate) {
         this.propertyValue = propertyValue;
