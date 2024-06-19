@@ -1,6 +1,8 @@
 package model;
 
 public class House extends Financing {
+    private double buildingArea;
+    private double landSize;
 
     public House(double propertyValue, int deadlineFinancing, double annualTaxRate) {
         super(propertyValue, deadlineFinancing, annualTaxRate);
@@ -26,4 +28,19 @@ public class House extends Financing {
         return result;
     }
 
+    public double getBuildingArea() {
+        return buildingArea;
+    }
+
+    public void setBuildingArea(double buildingArea) {
+        this.buildingArea = buildingArea;
+    }
+
+    public double getLandSize() {
+        return this.landSize;
+    }
+
+    public void setLandSize(double landSize) {
+        this.landSize = landSize;
+    }
 }
