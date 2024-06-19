@@ -23,7 +23,7 @@ public class Land extends Financing {
         double monthlyPayment = this.calculateMonthlyPayment();
 
         result = monthlyPayment * this.deadlineFinancing * 12;
-        
+
         return result;
     }
 }
