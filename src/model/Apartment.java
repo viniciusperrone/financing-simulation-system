@@ -2,7 +2,7 @@ package model;
 
 import java.lang.Math;
 
-public class Apartment extends  Financing{
+public class Apartment extends Financing{
     private double monthlyTax;
 
     public Apartment(double propertyValue, int deadlineFinancing, double annualTaxRate) {
@@ -18,6 +18,15 @@ public class Apartment extends  Financing{
     }
 
     @Override
+    public double calculateMonthlyPayment() {
+        double result;
+
+        result = this.propertyValue / (this.deadlineFinancing * 12) * (1 + (this.annualTaxRate / 12));
+
+        return result;
+    }
+
+    @Override
     public double calculateTotalPayment() {
         double result;
         int totalMonths = super.getDeadlineFinancing() * 12;
@@ -28,4 +37,5 @@ public class Apartment extends  Financing{
 
         return result;
     }
+
 }
