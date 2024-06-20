@@ -4,6 +4,8 @@ import java.lang.Math;
 
 public class Apartment extends Financing{
     private double monthlyTax;
+    private int parkingSpaces;
+    private int floorNumber;
 
     public Apartment(double propertyValue, int deadlineFinancing, double annualTaxRate) {
         super(propertyValue, deadlineFinancing, annualTaxRate);
@@ -38,4 +40,19 @@ public class Apartment extends Financing{
         return result;
     }
 
+    public int getParkingSpaces() {
+        return parkingSpaces;
+    }
+
+    public void setParkingSpaces(int parkingSpaces) {
+        this.parkingSpaces = parkingSpaces;
+    }
+
+    public int getFloorNumber() {
+        return floorNumber;
+    }
+
+    public void setFloorNumber(int floorNumber) {
+        this.floorNumber = floorNumber;
+    }
 }
