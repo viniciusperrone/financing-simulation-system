@@ -1,6 +1,7 @@
 package model;
 
 public class Land extends Financing {
+    private String kindOfZone;
 
     public Land(double propertyValue, int deadlineFinancing, double annualTaxRate) {
         super(propertyValue, deadlineFinancing, annualTaxRate);
@@ -25,5 +26,13 @@ public class Land extends Financing {
         result = monthlyPayment * this.deadlineFinancing * 12;
 
         return result;
+    }
+
+    public String getKindOfZone() {
+        return kindOfZone;
+    }
+
+    public void setKindOfZone(String kindOfZone) {
+        this.kindOfZone = kindOfZone;
     }
 }
