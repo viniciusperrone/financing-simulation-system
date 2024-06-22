@@ -3,6 +3,8 @@
 package main;
 
 import model.Financing;
+import model.Apartment;
+
 import util.InterfaceUser;
 
 import java.util.ArrayList;
@@ -25,7 +27,7 @@ public class Main {
             int deadlineFinancing = userPrompt.catchDeadlineFinancing();
             double annualTaxRate = userPrompt.catchAnnualTaxRate();
 
-            Financing financing = new Financing(propertyValue, deadlineFinancing, annualTaxRate);
+            Financing financing = new Apartment(propertyValue, deadlineFinancing, annualTaxRate);
 
             System.out.print("\n");
 
