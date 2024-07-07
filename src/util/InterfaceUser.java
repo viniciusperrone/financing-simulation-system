@@ -106,5 +106,29 @@ public class InterfaceUser {
         return annualTaxRate;
     }
 
+    public double catchBuildingArea() {
+        return 0;
+    }
+
+    public double catchLandSize() {
+        return 0;
+    }
+
+    public double catchMonthlyTax() {
+        return 0;
+    }
+
+    public int catchParkingSpaces() {
+        return 0;
+    }
+
+    public int catchFloorNumber() {
+        return 0;
+    }
+
+    public String catchKindOfZone() {
+        return new String("a");
+    }
+
     public static void main(String [] args) {}
 }
