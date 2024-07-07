@@ -8,6 +8,14 @@ public class Land extends Financing {
 
     }
 
+    public String getKindOfZone() {
+        return kindOfZone;
+    }
+
+    public void setKindOfZone(String kindOfZone) {
+        this.kindOfZone = kindOfZone;
+    }
+
     @Override
     public double calculateMonthlyPayment() {
         double result;
@@ -28,11 +36,10 @@ public class Land extends Financing {
         return result;
     }
 
-    public String getKindOfZone() {
-        return kindOfZone;
+    @Override
+    public String toString() {
+        return "Terreno - " + "valor imovél: " + this.propertyValue + ", prazo (meses): " + this.deadlineFinancing +
+                ", taxa anual: " + this.annualTaxRate + ", tipo de zona: " + this.kindOfZone;
     }
 
-    public void setKindOfZone(String kindOfZone) {
-        this.kindOfZone = kindOfZone;
-    }
 }
