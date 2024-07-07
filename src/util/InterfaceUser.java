@@ -12,13 +12,18 @@ public class InterfaceUser {
             System.out.print("Digite o valor do imovél: ");
 
             if(scanner.hasNextDouble()) {
-                propertyValue = scanner.nextDouble();
+                try {
+                    propertyValue = scanner.nextDouble();
 
-                if(propertyValue <= 0) {
-                    System.out.println("Valor deve ser positivo!");
-                } else {
-                    validEntry = true;
+                    if(propertyValue <= 0) {
+                        throw new Exception("Valor deve ser positivo!");
+                    } else {
+                        validEntry = true;
+                    }
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
                 }
+
             }
 
             else {
@@ -40,12 +45,17 @@ public class InterfaceUser {
             System.out.print("Digite o prazo do financiamento (em meses): ");
 
             if(scanner.hasNextInt()) {
-                deadlineFinancing = scanner.nextInt();
+                try {
+                    deadlineFinancing = scanner.nextInt();
 
-                if(deadlineFinancing <= 0) {
-                    System.out.println("Valor deve ser positivo!");
-                } else {
-                    validEntry = true;
+                    if(deadlineFinancing <= 0) {
+                        throw new Exception("Valor deve ser positivo!");
+                    } else {
+                        validEntry = true;
+                    }
+
+                } catch(Exception e) {
+                    System.out.println(e.getMessage());
                 }
 
             }
@@ -69,17 +79,21 @@ public class InterfaceUser {
             System.out.print("Digite a taxa de juros: ");
 
             if(scanner.hasNextDouble()) {
-                annualTaxRate = scanner.nextDouble();
+                try {
+                    annualTaxRate = scanner.nextDouble();
 
-                if(annualTaxRate <= 0) {
-                    System.out.println("Valor deve ser positivo!");
-                }
-                if(annualTaxRate >= 100000000) {
-                    System.out.println("Taxa muito alta!");
-                }
-                else {
-                    validEntry = true;
-                }
+                    if(annualTaxRate <= 0) {
+                        throw new Exception("Valor deve ser positivo!");
+                    }
+                    if(annualTaxRate >= 100000000) {
+                        throw new Exception("Taxa muito alta!");
+                    }
+                    else {
+                        validEntry = true;
+                    }
+                } catch(Exception e) {}
+
+
             }
 
             else {
