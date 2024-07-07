@@ -55,4 +55,11 @@ public class Apartment extends Financing{
     public void setFloorNumber(int floorNumber) {
         this.floorNumber = floorNumber;
     }
+
+    @Override
+    public String toString() {
+        return "Apartamento - " + "valor imovél: " + this.propertyValue + ", prazo (meses): " + this.deadlineFinancing +
+                ", taxa anual: " + this.annualTaxRate + ", taxa mensal: " + this.calculateMonthlyPayment() +
+                ", vagas garagem: " + this.parkingSpaces + ", número andar: " + this.floorNumber;
+    }
 }
