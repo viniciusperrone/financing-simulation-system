@@ -4,6 +4,8 @@ package main;
 
 import model.Financing;
 import model.Apartment;
+import model.House;
+import model.Land;
 
 import util.InterfaceUser;
 
@@ -14,32 +16,92 @@ public class Main {
     public static void main(String[] args) {
         System.out.println("------------Finaciamento Imobiliário------------\n");
 
-        int countLoop = 0;
+        int option = 0;
         double totalSumPropertyValue = 0;
         double totalSumPaymentByFinancing = 0;
 
         List<Financing> financings = new ArrayList<Financing>();
 
-        while(countLoop < 4) {
+        while(option != 4) {
+            System.out.println("1. Casa");
+            System.out.println("2. Apartamento");
+            System.out.println("3. Terreno");
+            System.out.println("4. Sair");
+
             InterfaceUser userPrompt = new InterfaceUser();
 
-            double propertyValue = userPrompt.catchPropertyValue();
-            int deadlineFinancing = userPrompt.catchDeadlineFinancing();
-            double annualTaxRate = userPrompt.catchAnnualTaxRate();
+            System.out.print("Digite sua opção: ");
 
-            Financing financing = new Apartment(propertyValue, deadlineFinancing, annualTaxRate);
+            option = userPrompt.catchOptionMenu();
 
-            System.out.print("\n");
+            switch (option) {
+                case 1:
+                    double propertyValueHouse = userPrompt.catchPropertyValue();
+                    int deadlineFinancingHouse = userPrompt.catchDeadlineFinancing();
+                    double annualTaxRateHouse = userPrompt.catchAnnualTaxRate();
 
-            totalSumPropertyValue += financing.getPropertyValue();
-            totalSumPaymentByFinancing += financing.calculateTotalPayment();
+                    House house = new House(propertyValueHouse, deadlineFinancingHouse, annualTaxRateHouse);
 
-            financings.add(financing);
+                    house.setLandSize(
+                            userPrompt.catchLandSize()
+                    );
 
-            countLoop += 1;
+                    house.setBuildingArea(
+                            userPrompt.catchBuildingArea()
+                    );
+
+                    totalSumPropertyValue += house.getPropertyValue();
+                    totalSumPaymentByFinancing += house.calculateTotalPayment();
+
+                    financings.add(house);
+
+                    break;
+
+                case 2:
+                    double propertyValueApartment = userPrompt.catchPropertyValue();
+                    int deadlineFinancingApartment = userPrompt.catchDeadlineFinancing();
+                    double annualTaxRateApartment = userPrompt.catchAnnualTaxRate();
+
+                    Apartment apartment = new Apartment(propertyValueApartment, deadlineFinancingApartment, annualTaxRateApartment);
+
+                    apartment.setParkingSpaces(
+                            userPrompt.catchParkingSpaces()
+                    );
+
+                    apartment.setFloorNumber(
+                            userPrompt.catchFloorNumber()
+                    );
+
+                    totalSumPropertyValue += apartment.getPropertyValue();
+                    totalSumPaymentByFinancing += apartment.calculateTotalPayment();
+
+                    financings.add(apartment);
+
+                    break;
+
+                case 3:
+                    double propertyValueLand = userPrompt.catchPropertyValue();
+                    int deadlineFinancingLand = userPrompt.catchDeadlineFinancing();
+                    double annualTaxRateLand = userPrompt.catchAnnualTaxRate();
+
+                    Land land = new Land(propertyValueLand, deadlineFinancingLand, annualTaxRateLand);
+
+                    land.setKindOfZone(
+                            userPrompt.catchKindOfZone()
+                    );
+
+                    totalSumPropertyValue += land.getPropertyValue();
+                    totalSumPaymentByFinancing += land.calculateTotalPayment();
+
+                    financings.add(land);
+
+                    break;
+                default:
+                    break;
+            }
         }
 
-        System.out.println("------------Resultado------------\n");
+        System.out.println("\n------------Resultado------------\n");
 
         System.out.println("Total de todos os imóveis: R$" + totalSumPropertyValue);
         System.out.println("Total de todos os financiamentos: R$" + totalSumPaymentByFinancing);

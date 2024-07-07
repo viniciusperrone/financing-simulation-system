@@ -8,6 +8,22 @@ public class House extends Financing {
         super(propertyValue, deadlineFinancing, annualTaxRate);
     }
 
+    public double getBuildingArea() {
+        return buildingArea;
+    }
+
+    public void setBuildingArea(double buildingArea) {
+        this.buildingArea = buildingArea;
+    }
+
+    public double getLandSize() {
+        return this.landSize;
+    }
+
+    public void setLandSize(double landSize) {
+        this.landSize = landSize;
+    }
+
     @Override
     public double calculateMonthlyPayment() {
         double result;
@@ -28,19 +44,4 @@ public class House extends Financing {
         return result;
     }
 
-    public double getBuildingArea() {
-        return buildingArea;
-    }
-
-    public void setBuildingArea(double buildingArea) {
-        this.buildingArea = buildingArea;
-    }
-
-    public double getLandSize() {
-        return this.landSize;
-    }
-
-    public void setLandSize(double landSize) {
-        this.landSize = landSize;
-    }
 }

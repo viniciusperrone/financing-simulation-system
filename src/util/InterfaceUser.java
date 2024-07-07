@@ -3,6 +3,35 @@ package util;
 import java.util.Scanner;
 
 public class InterfaceUser {
+    public int catchOptionMenu() {
+        Scanner scanner = new Scanner(System.in);
+        boolean validEntry = false;
+        int option = 0;
+
+        while(!validEntry) {
+            if(scanner.hasNextInt()) {
+                try {
+                    option = scanner.nextInt();
+
+                    if(option <= 0 || option > 6) {
+                        throw new Exception("Valor deve ser positivo!");
+                    }
+
+                    validEntry = true;
+                } catch (Exception e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            else {
+                System.out.println("Valor inválido!");
+
+                scanner.next();
+            }
+        }
+
+        return option;
+    }
+
     public double catchPropertyValue() {
         Scanner scanner = new Scanner(System.in);
         boolean validEntry = false;
