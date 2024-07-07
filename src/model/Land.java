@@ -39,7 +39,7 @@ public class Land extends Financing {
     @Override
     public String toString() {
         return "Terreno - " + "valor imovél: " + this.propertyValue + ", prazo (meses): " + this.deadlineFinancing +
-                ", taxa anual: " + this.annualTaxRate + ", tipo de zona: " + this.kindOfZone;
+                ", taxa anual: " + this.annualTaxRate + ", tipo de zona: " + this.getKindOfZone();
     }
 
 }

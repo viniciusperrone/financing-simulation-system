@@ -59,7 +59,7 @@ public class Apartment extends Financing{
     @Override
     public String toString() {
         return "Apartamento - " + "valor imovél: " + this.propertyValue + ", prazo (meses): " + this.deadlineFinancing +
-                ", taxa anual: " + this.annualTaxRate + ", taxa mensal: " + this.calculateMonthlyPayment() +
+                ", taxa anual: " + this.annualTaxRate + ", taxa mensal: " + this.getMonthlyTax() +
                 ", vagas garagem: " + this.parkingSpaces + ", número andar: " + this.floorNumber;
     }
 }
