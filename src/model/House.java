@@ -44,4 +44,11 @@ public class House extends Financing {
         return result;
     }
 
+    @Override
+    public String toString() {
+        return "Casa - " + "valor imovél: " + this.propertyValue + ", prazo (meses): " + this.deadlineFinancing +
+                ", taxa anual: " + this.annualTaxRate + ", tamanho terreno: " + this.landSize +
+                ", tamanho area construída: " + this.buildingArea;
+    }
+
 }
