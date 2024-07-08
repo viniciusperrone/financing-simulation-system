@@ -9,11 +9,14 @@ import model.Land;
 
 import util.InterfaceUser;
 
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         System.out.println("------------Finaciamento Imobiliário------------\n");
 
         int option = 0;
@@ -22,84 +25,104 @@ public class Main {
 
         List<Financing> financings = new ArrayList<Financing>();
 
-        while(option != 4) {
-            System.out.println("1. Casa");
-            System.out.println("2. Apartamento");
-            System.out.println("3. Terreno");
-            System.out.println("4. Sair");
+        FileWriter write = null;
 
-            InterfaceUser userPrompt = new InterfaceUser();
+        try {
+            write = new FileWriter("financings.txt");
 
-            System.out.print("Digite sua opção: ");
+            while(option != 5) {
+                System.out.println("1. Casa");
+                System.out.println("2. Apartamento");
+                System.out.println("3. Terreno");
+                System.out.println("4. Listar Financiamentos");
+                System.out.println("5. Sair");
 
-            option = userPrompt.catchOptionMenu();
+                InterfaceUser userPrompt = new InterfaceUser();
 
-            switch (option) {
-                case 1:
-                    double propertyValueHouse = userPrompt.catchPropertyValue();
-                    int deadlineFinancingHouse = userPrompt.catchDeadlineFinancing();
-                    double annualTaxRateHouse = userPrompt.catchAnnualTaxRate();
+                System.out.print("Digite sua opção: ");
 
-                    House house = new House(propertyValueHouse, deadlineFinancingHouse, annualTaxRateHouse);
+                option = userPrompt.catchOptionMenu();
 
-                    house.setLandSize(
-                            userPrompt.catchLandSize()
-                    );
+                switch (option) {
+                    case 1:
+                        double propertyValueHouse = userPrompt.catchPropertyValue();
+                        int deadlineFinancingHouse = userPrompt.catchDeadlineFinancing();
+                        double annualTaxRateHouse = userPrompt.catchAnnualTaxRate();
 
-                    house.setBuildingArea(
-                            userPrompt.catchBuildingArea()
-                    );
+                        House house = new House(propertyValueHouse, deadlineFinancingHouse, annualTaxRateHouse);
 
-                    totalSumPropertyValue += house.getPropertyValue();
-                    totalSumPaymentByFinancing += house.calculateTotalPayment();
+                        house.setLandSize(
+                                userPrompt.catchLandSize()
+                        );
 
-                    financings.add(house);
+                        house.setBuildingArea(
+                                userPrompt.catchBuildingArea()
+                        );
 
-                    break;
+                        totalSumPropertyValue += house.getPropertyValue();
+                        totalSumPaymentByFinancing += house.calculateTotalPayment();
 
-                case 2:
-                    double propertyValueApartment = userPrompt.catchPropertyValue();
-                    int deadlineFinancingApartment = userPrompt.catchDeadlineFinancing();
-                    double annualTaxRateApartment = userPrompt.catchAnnualTaxRate();
+                        write.write(house.toString() + "\n");
 
-                    Apartment apartment = new Apartment(propertyValueApartment, deadlineFinancingApartment, annualTaxRateApartment);
+                        financings.add(house);
 
-                    apartment.setParkingSpaces(
-                            userPrompt.catchParkingSpaces()
-                    );
+                        break;
 
-                    apartment.setFloorNumber(
-                            userPrompt.catchFloorNumber()
-                    );
+                    case 2:
+                        double propertyValueApartment = userPrompt.catchPropertyValue();
+                        int deadlineFinancingApartment = userPrompt.catchDeadlineFinancing();
+                        double annualTaxRateApartment = userPrompt.catchAnnualTaxRate();
 
-                    totalSumPropertyValue += apartment.getPropertyValue();
-                    totalSumPaymentByFinancing += apartment.calculateTotalPayment();
+                        Apartment apartment = new Apartment(propertyValueApartment, deadlineFinancingApartment, annualTaxRateApartment);
 
-                    financings.add(apartment);
+                        apartment.setParkingSpaces(
+                                userPrompt.catchParkingSpaces()
+                        );
 
-                    break;
+                        apartment.setFloorNumber(
+                                userPrompt.catchFloorNumber()
+                        );
 
-                case 3:
-                    double propertyValueLand = userPrompt.catchPropertyValue();
-                    int deadlineFinancingLand = userPrompt.catchDeadlineFinancing();
-                    double annualTaxRateLand = userPrompt.catchAnnualTaxRate();
+                        totalSumPropertyValue += apartment.getPropertyValue();
+                        totalSumPaymentByFinancing += apartment.calculateTotalPayment();
 
-                    Land land = new Land(propertyValueLand, deadlineFinancingLand, annualTaxRateLand);
+                        financings.add(apartment);
 
-                    land.setKindOfZone(
-                            userPrompt.catchKindOfZone()
-                    );
+                        write.write(apartment.toString() + "\n");
 
-                    totalSumPropertyValue += land.getPropertyValue();
-                    totalSumPaymentByFinancing += land.calculateTotalPayment();
+                        break;
 
-                    financings.add(land);
+                    case 3:
+                        double propertyValueLand = userPrompt.catchPropertyValue();
+                        int deadlineFinancingLand = userPrompt.catchDeadlineFinancing();
+                        double annualTaxRateLand = userPrompt.catchAnnualTaxRate();
 
-                    break;
-                default:
-                    break;
+                        Land land = new Land(propertyValueLand, deadlineFinancingLand, annualTaxRateLand);
+
+                        land.setKindOfZone(
+                                userPrompt.catchKindOfZone()
+                        );
+
+                        totalSumPropertyValue += land.getPropertyValue();
+                        totalSumPaymentByFinancing += land.calculateTotalPayment();
+
+                        write.write(land.toString() + "\n");
+
+                        financings.add(land);
+
+                        break;
+                    default:
+                        break;
+                }
             }
+
+            write.close();
+        } catch (FileNotFoundException e) {
+            e.getMessage();
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
+
 
         System.out.println("\n------------Resultado------------\n");
 
