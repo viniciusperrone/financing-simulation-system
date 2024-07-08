@@ -30,12 +30,11 @@ public class Main {
         try {
             write = new FileWriter("financings.txt");
 
-            while(option != 5) {
+            while(option != 4) {
                 System.out.println("1. Casa");
                 System.out.println("2. Apartamento");
                 System.out.println("3. Terreno");
-                System.out.println("4. Listar Financiamentos");
-                System.out.println("5. Sair");
+                System.out.println("4. Sair");
 
                 InterfaceUser userPrompt = new InterfaceUser();
 

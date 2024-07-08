@@ -1,1 +1,0 @@
-Casa - valor imovél: 100.0, prazo (meses): 20, taxa anual: 10.0, tamanho terreno: 100.0, tamanho area construída: 100.0
